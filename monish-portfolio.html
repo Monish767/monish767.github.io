@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Monish K — AI/ML Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAFAFB; --bg-alt:#F1F0F7; --ink:#14141F; --ink-soft:#57556C;
+    --indigo:#5B5FEF; --coral:#FF6B6B; --teal:#0EA895; --amber:#F5A524; --line:#E4E2ED;
+    box-sizing:border-box;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0F0E15; --bg-alt:#181621; --ink:#F1F0F7; --ink-soft:#A6A3BC; --line:#2A2836;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0F0E15; --bg-alt:#181621; --ink:#F1F0F7; --ink-soft:#A6A3BC; --line:#2A2836;
+  }
+  html{scroll-padding-top:env(safe-area-inset-top,0px); scroll-behavior:smooth;}
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif; line-height:1.6;
+  }
+  h1,h2,h3{font-family:'Space Grotesk',system-ui,sans-serif; margin:0; letter-spacing:-0.01em;}
+  a{color:inherit;}
+  .wrap{max-width:920px; margin:0 auto; padding:0 24px;}
+  section{padding:72px 0;}
+  .eyebrow{color:var(--ink-soft); font-size:0.95rem; margin:0 0 8px;}
+
+  /* Hero */
+  .hero{
+    padding:96px 0 72px;
+    background:linear-gradient(135deg, var(--bg) 55%, var(--bg-alt) 100%);
+    position:relative; overflow:hidden;
+  }
+  .hero::before{
+    content:""; position:absolute; top:-120px; right:-120px;
+    width:360px; height:360px; border-radius:50%;
+    background:radial-gradient(circle at 30% 30%, var(--coral), transparent 70%);
+    opacity:0.25; filter:blur(10px);
+  }
+  .hero::after{
+    content:""; position:absolute; bottom:-140px; left:-100px;
+    width:300px; height:300px; border-radius:50%;
+    background:radial-gradient(circle at 60% 40%, var(--indigo), transparent 70%);
+    opacity:0.25; filter:blur(10px);
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .hero h1{font-size:clamp(2.4rem,6vw,3.6rem); line-height:1.05;}
+  .hero .role{font-size:1.2rem; color:var(--indigo); margin-top:10px; font-weight:600;}
+  .hero p{max-width:60ch; color:var(--ink-soft); margin-top:18px; font-size:1.05rem;}
+  .hero-links{display:flex; gap:14px; margin-top:28px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px; border-radius:8px; font-weight:600; font-size:0.95rem;
+    text-decoration:none; border:1.5px solid var(--line);
+  }
+  .btn.primary{background:var(--ink); color:var(--bg); border-color:var(--ink);}
+  .btn.primary:hover{background:var(--indigo); border-color:var(--indigo);}
+  .btn.ghost:hover{border-color:var(--indigo); color:var(--indigo);}
+
+  /* Section headings */
+  .sec-head{margin-bottom:36px;}
+  .sec-head h2{font-size:1.9rem;}
+  .accent-bar{width:44px; height:5px; border-radius:3px; margin-bottom:14px;}
+
+  /* Timeline (experience + education — genuinely chronological) */
+  .timeline{border-left:2px solid var(--line); padding-left:28px; display:flex; flex-direction:column; gap:36px;}
+  .tl-item{position:relative;}
+  .tl-item::before{
+    content:""; position:absolute; left:-33.5px; top:4px;
+    width:11px; height:11px; border-radius:50%; background:var(--indigo);
+    box-shadow:0 0 0 4px var(--bg);
+  }
+  .tl-item.edu::before{background:var(--teal);}
+  .tl-when{color:var(--ink-soft); font-size:0.9rem; margin-bottom:4px;}
+  .tl-item h3{font-size:1.15rem;}
+  .tl-org{color:var(--ink-soft); font-size:0.95rem; margin-top:2px;}
+  .tl-item ul{margin:12px 0 0; padding-left:20px; color:var(--ink-soft); font-size:0.96rem;}
+  .tl-item li{margin-bottom:6px;}
+
+  /* Projects — asymmetric bento, not identical cards */
+  .bento{display:grid; grid-template-columns:repeat(6,1fr); gap:18px;}
+  .card{
+    background:var(--bg-alt); border-radius:14px; padding:26px;
+    display:flex; flex-direction:column; gap:10px; border-top:4px solid var(--indigo);
+  }
+  .card h3{font-size:1.15rem;}
+  .card .stack{color:var(--ink-soft); font-size:0.85rem;}
+  .card p{color:var(--ink-soft); font-size:0.94rem; margin:0;}
+  .card .stat{font-family:'Space Grotesk'; font-size:1.6rem; font-weight:700; color:var(--indigo);}
+  .card.c1{grid-column:span 4; border-top-color:var(--coral);}
+  .card.c1 .stat{color:var(--coral);}
+  .card.c2{grid-column:span 2; border-top-color:var(--teal);}
+  .card.c2 .stat{color:var(--teal);}
+  .card.c3{grid-column:span 2; border-top-color:var(--amber);}
+  .card.c3 .stat{color:var(--amber);}
+  .card.c4{grid-column:span 4;}
+  .card.c5{grid-column:span 3; border-top-color:var(--teal);}
+  .card.c5 .stat{color:var(--teal);}
+  .card.c6{grid-column:span 3; border-top-color:var(--amber);}
+  .card.c6 .stat{color:var(--amber);}
+  .tag{display:inline-block; font-size:0.72rem; padding:3px 9px; border-radius:20px; background:var(--bg); color:var(--ink-soft); width:fit-content; border:1px solid var(--line);}
+
+  /* Skills */
+  .skill-groups{display:flex; flex-direction:column; gap:22px;}
+  .skill-group h3{font-size:0.98rem; color:var(--ink-soft); font-weight:600; margin-bottom:10px;}
+  .chips{display:flex; flex-wrap:wrap; gap:9px;}
+  .chip{
+    padding:7px 14px; border-radius:8px; font-size:0.9rem; font-weight:500;
+    background:var(--bg-alt); border:1px solid var(--line);
+  }
+  .chip.i{border-color:var(--indigo); color:var(--indigo);}
+  .chip.c{border-color:var(--coral); color:var(--coral);}
+  .chip.t{border-color:var(--teal); color:var(--teal);}
+  .chip.a{border-color:var(--amber); color:var(--amber);}
+
+  /* Contact */
+  .contact{background:var(--bg-alt); border-radius:16px; padding:44px 36px; text-align:left;}
+  .contact h2{font-size:1.7rem; margin-bottom:12px;}
+  .contact p{color:var(--ink-soft); max-width:50ch;}
+  .contact .hero-links{margin-top:24px;}
+  footer{text-align:center; padding:32px 0 40px; color:var(--ink-soft); font-size:0.85rem;}
+
+  @media (max-width:640px){
+    section{padding:52px 0;}
+    .bento{grid-template-columns:1fr 1fr;}
+    .card.c1,.card.c4{grid-column:span 2;}
+    .card.c2,.card.c3,.card.c5,.card.c6{grid-column:span 1;}
+    .timeline{padding-left:22px;}
+    .tl-item::before{left:-27.5px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <h1>Monish K</h1>
+    <div class="role">AI/ML Engineer · Full-Stack AI Developer</div>
+    <p>Final-year AI/ML engineering student in Bangalore, building forecasting models, classifiers, and applied ML systems — most recently through an AI/ML internship at IIMSTC, shipping projects from demand forecasting to acoustic threat detection.</p>
+    <div class="hero-links">
+      <a class="btn primary" href="mailto:kmonish167@gmail.com">Email me</a>
+      <a class="btn ghost" href="https://github.com/Monish767" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://linkedin.com/in/monishk21" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+
+  <section id="experience">
+    <div class="sec-head">
+      <div class="accent-bar" style="background:var(--indigo)"></div>
+      <h2>Experience &amp; education</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-when">Feb 2026 — May 2026</div>
+        <h3>AI, ML &amp; Generative AI Intern</h3>
+        <div class="tl-org">International Institute of Medical Science &amp; Technology Council (IIMSTC)</div>
+        <ul>
+          <li>Built an XGBoost electricity forecasting model for BESCOM (R² &gt; 0.92), beating a physics-based baseline by 63%, plus a full Gruha Jyoti slab billing engine and a per-appliance savings recommender.</li>
+          <li>Delivered a national GDP growth predictor (Polynomial Ridge Regression, R² 0.9169 across 537 country-year records) and an acoustic poaching-threat classifier (SVM, 87.4% accuracy on 2,025 audio files).</li>
+        </ul>
+      </div>
+      <div class="tl-item edu">
+        <div class="tl-when">2022 — 2026</div>
+        <h3>B.E., Artificial Intelligence &amp; Machine Learning</h3>
+        <div class="tl-org">SJB Institute of Technology, Bangalore · CGPA 7.96</div>
+      </div>
+      <div class="tl-item edu">
+        <div class="tl-when">2020 — 2022</div>
+        <h3>Higher Secondary (PCMB)</h3>
+        <div class="tl-org">SB Mahaveer Jain PU College, Bangalore · Karnataka State Board</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head">
+      <div class="accent-bar" style="background:var(--coral)"></div>
+      <h2>Projects</h2>
+    </div>
+    <div class="bento">
+      <div class="card c1">
+        <span class="tag">IIMSTC capstone</span>
+        <h3>BESCOM electricity forecasting</h3>
+        <div class="stat">R² &gt; 0.92</div>
+        <p>XGBoost regression outperforming physics-based estimation by 63%, with a full Gruha Jyoti billing-slab engine and appliance-level savings recommendations in units and INR.</p>
+      </div>
+      <div class="card c2">
+        <span class="tag">GenAI</span>
+        <h3>AI fitness trainer</h3>
+        <div class="stat">OpenAI API</div>
+        <p>Streamlit app giving personalised workout plans and real-time conversational coaching.</p>
+      </div>
+      <div class="card c3">
+        <span class="tag">Bioacoustics</span>
+        <h3>Poaching threat detection</h3>
+        <div class="stat">87.4%</div>
+        <p>SVM classifier on MFCC features distinguishing gunshots and logging from wildlife audio across 2,025 files.</p>
+      </div>
+      <div class="card c4">
+        <span class="tag">Shortlisted — UIP 2026</span>
+        <h3>SmartSupply Agent — retail inventory management</h3>
+        <p>Multi-agent system automating demand forecasting, stock monitoring, and restocking. Built the LSTM-based demand forecasting module and is integrating monitoring and restocking-decision agents.</p>
+      </div>
+      <div class="card c5">
+        <span class="tag">4-person team lead</span>
+        <h3>Smart agriculture system</h3>
+        <div class="stat">94.4%</div>
+        <p>MobileNetV2 plant-disease detector (35+ classes) with an Arduino IoT pipeline and Streamlit dashboard for irrigation alerts.</p>
+      </div>
+      <div class="card c6">
+        <span class="tag">Research</span>
+        <h3>GDP growth predictor</h3>
+        <div class="stat">R² 0.9169</div>
+        <p>Polynomial Ridge Regression across 537 country-year observations, 2000–2023.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head">
+      <div class="accent-bar" style="background:var(--teal)"></div>
+      <h2>Skills &amp; certifications</h2>
+    </div>
+    <div class="skill-groups">
+      <div class="skill-group">
+        <h3>Languages &amp; frameworks</h3>
+        <div class="chips">
+          <span class="chip i">Python</span><span class="chip i">Java</span><span class="chip i">C</span><span class="chip i">TensorFlow</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>AI/ML &amp; data</h3>
+        <div class="chips">
+          <span class="chip c">Machine Learning</span><span class="chip c">IoT Sensor Integration</span><span class="chip c">Predictive Analytics</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Tools &amp; platforms</h3>
+        <div class="chips">
+          <span class="chip t">Streamlit</span><span class="chip t">OpenAI API</span><span class="chip t">Salesforce AI Agent</span><span class="chip t">Power BI</span><span class="chip t">Tableau</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3>Certifications</h3>
+        <div class="chips">
+          <span class="chip a">Salesforce AI Agent Developer — SmartBridge, Dec 2025</span><span class="chip a">AWS Cloud Practitioner</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Let's talk</h2>
+      <p>Open to AI/ML engineering roles in Bangalore. Reach out by email or connect on LinkedIn.</p>
+      <div class="hero-links">
+        <a class="btn primary" href="mailto:kmonish167@gmail.com">kmonish167@gmail.com</a>
+        <a class="btn ghost" href="tel:+917892263612">+91 78922 63612</a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>Monish K · Bangalore, India</footer>
+
+</body>
+</html>
